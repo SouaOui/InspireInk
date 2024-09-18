@@ -5,6 +5,10 @@ from .models import Post
 def home(request):
     return render(request, "home.html")
 
+
+def index(request):
+    return render(request, "index.html")
+
 def login(request):
 	return render(request, "login.html")
 
