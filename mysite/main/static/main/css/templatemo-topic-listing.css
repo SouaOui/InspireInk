@@ -1143,6 +1143,33 @@ blockquote {
 
 /* for profile pic */
 
+/* Add to your CSS file or within <style> tags */
+.profile-img {
+  width: 70px; /* Adjust size */
+  height: 70px;
+  object-fit: cover;
+}
+
+.post-title {
+  font-size: 1.8rem; /* Make the title larger */
+  margin-bottom: 0.5rem;
+}
+
+.post-content {
+  color: #555; /* Slightly muted content text for professionalism */
+  line-height: 1.6;
+}
+
+.row {
+  border-bottom: 1px solid #ddd; /* Optional: separate each post visually */
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+a.text-dark:hover {
+  text-decoration: underline; /* Optional: underline post title on hover*/
+}
+
 .article-svg {
   width: 25px;
   height: 25px;
