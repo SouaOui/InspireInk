@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
+
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
@@ -19,8 +21,7 @@ class UserRegisterForm(UserCreationForm):
         super(UserRegisterForm, self).__init__(*args, **kwargs)
         self.fields['password1'].help_text = 'password with at least 8 characters.'
         self.fields['password2'].help_text = 'Re-enter your password to confirm.'
-
-
+        
 class UserUpdateForm(forms.ModelForm):
         email = forms.EmailField()
 
