@@ -1,45 +1,41 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
-<div class="d-flex justify-content-center align-items-center vh-100">
-  <div class="col-md-8">
-    <!-- Profile Info Card -->
-    <div class="card shadow-lg border-0">
-      <div class="card-header bg-info text-white text-center py-4">
-        <h3>{{ user.username }}'s Profile</h3>
-      </div>
-      <div class="card-body">
-        <!-- User Image and Info -->
-        <div class="row mb-4">
-          <div class="col-md-4 text-center">
-            <img
-              class="rounded-circle account-img shadow-sm img-fluid"
-              src="{{ user.profile.image.url }}"
-              alt="{{ user.username }}'s profile picture"
-              style="max-width: 150px; border: 5px solid #f8f9fa"
-            />
-          </div>
-          <div class="col-md-8 d-flex flex-column justify-content-center">
-            <h4 class="account-heading">{{ user.username }}</h4>
+<div class="content-section mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Profile Information Section -->
+      <div class="col-md-8">
+        <div class="media d-flex align-items-center mb-4">
+          <img
+            class="rounded-circle account-img mr-3"
+            src="{{ user.profile.image.url }}"
+            alt="Profile Image"
+            style="width: 80px; height: 80px"
+          />
+          <div class="media-body">
+            <h2 class="account-heading mb-1">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Profile Update Form -->
-        <form method="POST" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+      <!-- Form Section -->
+      <div class="col-md-8">
+        <form
+          method="post"
+          enctype="multipart/form-data"
+          class="border p-4 rounded shadow-sm"
+        >
           {% csrf_token %}
           <fieldset class="form-group">
-            <legend class="border-bottom mb-4">
-              Update Profile Information
-            </legend>
-            <div class="row">
-              <div class="col-md-6">{{ u_form|crispy }}</div>
-              <div class="col-md-6">{{ p_form|crispy }}</div>
-            </div>
+            {{ u_form|crispy }}
+            <hr />
+            {{ p_form|crispy }}
           </fieldset>
-
-          <!-- Update Button -->
-          <div class="text-center">
-            <button class="btn btn-info btn-lg px-5" type="submit">
-              Update
+          <div class="form-group text-center mt-4">
+            <button type="submit" class="btn btn-info px-5">
+              Update Profile
             </button>
           </div>
         </form>

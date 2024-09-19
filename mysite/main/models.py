@@ -6,11 +6,11 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-    category = models.CharField(max_length=100, default="notlisted")
+    category = models.CharField(max_length=100, default="not-listed")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.title + self.content 
+        return f"{self.title} + ' ' + {self.content}" 
     
     
     

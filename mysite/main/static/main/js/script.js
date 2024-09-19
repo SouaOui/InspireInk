@@ -9,7 +9,7 @@ const closePopupBtn = document.getElementById("closePopup");
 
 // Open the popup when the user clicks the button
 openPopupBtn.addEventListener("click", function () {
-  popup.style.display = "flex";
+  popuep.style.display = "flex";
 });
 
 // Close the popup when the user clicks on <span> (x)
